@@ -3,7 +3,9 @@ arr = list(map(int, input().split()))
 
 # Please write your code here.
 max_k = 6
+# k자리 비교
 base = 10
+# 10진수
 
 def radix_sort():
     global arr
