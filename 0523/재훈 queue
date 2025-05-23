@@ -1,0 +1,117 @@
+N = int(input())
+command = []
+A = []
+
+for _ in range(N):
+    line = input().split()
+    command.append(line[0])
+    if line[0] == "push":
+        A.append(int(line[1]))
+    else:
+        A.append(0)
+
+# Please write your code here.
+
+from collections import deque
+
+class Queue:
+    def __init__(self):          # 빈 큐 하나를 생성합니다.
+        self.dq = deque()
+                
+    def push(self, item):        # 큐의 맨 뒤에 데이터를 추가합니다.
+        self.dq.append(item)
+                
+    def empty(self):             # 큐가 비어있으면 True를 반환합니다.
+        return not self.dq
+                
+    def size(self):              # 큐에 들어있는 데이터 수를 반환합니다.
+        return len(self.dq)
+        
+    def pop(self):               # 큐의 맨 앞에 있는 데이터를 반환하고 제거합니다.
+        if self.empty():
+            raise Exception("Queue is empty")
+            
+        return self.dq.popleft()
+                
+    def front(self):             # 큐의 맨 앞에 있는 데이터를 제거하지 않고 반환합니다.
+        if self.empty():
+            raise Exception("Queue is empty")
+                        
+        return self.dq[0]
+
+q = Queue()
+
+for i in range(len(command)):
+    if command[i] == 'push':
+        q.push(A[i])
+    elif command[i] == 'pop':
+        print(q.pop())
+    elif command[i] == 'front':
+        print(q.front())
+    elif command[i] == 'size':
+        print(q.size())
+    elif command[i] == 'empty':
+        if q.empty():
+            print(1)
+        else: print(0) 
+
+
+
+# 원형으로 돌아가면서 죽이기
+
+from collections import deque
+
+class Queue:
+    def __init__(self):          # 빈 큐 하나를 생성합니다.
+        self.dq = deque()
+                
+    def push(self, item):        # 큐의 맨 뒤에 데이터를 추가합니다.
+        self.dq.append(item)
+                
+    def empty(self):             # 큐가 비어있으면 True를 반환합니다.
+        return not self.dq
+               
+    def size(self):              # 큐에 들어있는 데이터 수를 반환합니다.
+        return len(self.dq)
+        
+    def pop(self):               # 큐의 맨 앞에 있는 데이터를 반환하고 제거합니다.
+        if self.empty():
+            raise Exception("Queue is empty")
+            
+        return self.dq.popleft()
+                
+    def front(self):             # 큐의 맨 앞에 있는 데이터를 제거하지 않고 반환합니다.
+        if self.empty():
+            raise Exception("Queue is empty")
+        return self.dq[0]
+    
+    def __str__(self):
+        arr = []
+        for i in range(len(self.dq)):  # len(self.dq)로 큐의 길이를 확인
+            arr.append(self.dq[i])
+        return str(arr)
+
+
+def solution(N, K):
+    q = Queue()
+    result = []  # 제거된 사람들을 저장할 리스트
+    for i in range(1, N+1):
+        q.push(i)
+    
+    while q.size() != 1:  # 큐에 1명이 남을 때까지 반복
+        for i in range(K - 1):  # K-1번은 맨 앞의 사람을 뒤로 보냄
+            q.push(q.front())
+            q.pop()
+        result.append(q.pop())  # K번째 사람을 제거하여 결과에 추가
+    
+    result.append(q.pop())  # 마지막 남은 사람을 추가
+    
+    return result
+
+
+# 입력 받기
+n, k = map(int, input().split())
+
+# 결과 출력
+a = solution(n, k)
+print(*a)
