@@ -16,7 +16,7 @@ for i in range(student_num):
     axis=student[i][1]-1
     left=axis-1
     right=axis+1
-    while left >=0 and right<switch_num and switch[left]==switch[right]:
+    while left >=0 and right<switch_num and switch[left]==switch[right]: #오류나서 GPT의 도움을 받았어요!
       if switch[left]==0:
         switch[left]=1
       else: switch[left]=0
@@ -35,6 +35,9 @@ for i in range(student_num):
   else:
     print("exception")
 
-result=' '.join(str(x) for x in switch)
-print(result)
+for i in range(switch_num):
+    print(switch[i], end=' ')
+    if (i + 1) % 20 == 0:
+        print()
+  
 
