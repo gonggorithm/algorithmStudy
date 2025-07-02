@@ -19,7 +19,6 @@ def dfs(i, j):
                 return True
     return False
 
-# 시작 가능 여부 체크
 if grid[0][0] == 0:
     print(0)
 else:
