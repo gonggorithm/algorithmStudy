@@ -1,0 +1,1 @@
+{"name":"Local: 1388","url":"c:\\Users\\yuja5\\OneDrive\\바탕 화면\\C_Tree\\1388.py","tests":[{"id":1751445023983,"input":"6 9\n-||--||--\n--||--||-\n|--||--||\n||--||--|\n-||--||--\n--||--||-","output":"31"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\yuja5\\OneDrive\\바탕 화면\\C_Tree\\1388.py","group":"local","local":true}
