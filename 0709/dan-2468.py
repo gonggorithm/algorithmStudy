@@ -30,7 +30,7 @@ def search():
     global visited, grid
     max_cnt = 0
 
-    for num in range(1, 101):
+    for num in range(101):
         tmp = grid
         drop(num)
         visited = [[False] * n for _ in range(n)]
