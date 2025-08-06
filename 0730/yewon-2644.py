@@ -30,3 +30,4 @@ def relation(graph:list[list[int]], start: int, target: int) -> int:
     return visited[target] -1
   
 print(relation(graph,a,b))
+
